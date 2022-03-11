@@ -38,10 +38,19 @@ var generateBtn = document.querySelector("#generate");
 // generateBtn.addEventListener("click", writePassword);
 
 function getPasswordLength() {
-    let password = prompt("Please enter desired password length");
-    while (password < 8 || password > 128){
-        password = prompt("Password must be between 8 and 128 characters");
+    var passwordLength = prompt("Please enter desired password length");
+    while (passwordLength < 8 || passwordLength > 128){
+        passwordLength = prompt("Password must be between 8 and 128 characters");
     } 
-    console.log(password)
+    console.log(passwordLength)
 }
+
+for (var i = 0; i < password.length; i++){
+    //loop to keep creating characters
+}
+
+var password = {
+    length: getPasswordLength(),
+    characters: getCharacters(), //need to create this function
+};
 //add function ro repeat if < 8 or > 128
