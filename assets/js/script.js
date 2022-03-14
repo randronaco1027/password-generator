@@ -36,6 +36,7 @@ var generateBtn = document.querySelector("#generate");
 // Add event listener to generate button
 
 // generateBtn.addEventListener("click", writePassword);
+var passwordLength; 
 
 function getPasswordLength() {
     var passwordLength = prompt("Please enter desired password length");
@@ -45,12 +46,19 @@ function getPasswordLength() {
     console.log(passwordLength)
 }
 
-for (var i = 0; i < password.length; i++){
+const passwordDigit = [];
+var randomNumber = function(min, max) {
+    var value = Math.floor(Math.random()*(max-min)+min);
+    return value;
+};
+for (var i = 0; i < passwordLength; i++){
     //loop to keep creating characters
-}
+    passwordDigit[i] = randomNumber(0, 9);
+    console.log(passwordDigit[i]);
+};
 
 var password = {
     length: getPasswordLength(),
-    characters: getCharacters(), //need to create this function
+    // characters: getCharacters(), //need to create this function
 };
 //add function ro repeat if < 8 or > 128
