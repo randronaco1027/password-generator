@@ -33,7 +33,9 @@ THEN the password is either displayed in an alert or written to the page
 
 ## What was provided
 Starter HTML
+
 Starter CSS
+
 Java sheet with build for a button and related function
 
 ## What was done
