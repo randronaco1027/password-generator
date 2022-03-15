@@ -31,7 +31,7 @@ function generatePassword() {
     for (var i = 0; i < passwordLength; i++) {
         passwordTest += charPool.charAt(Math.floor(Math.random() * charPool.length)); //Source at bottom
     };
-
+    return passwordTest;
     console.log("Pool of characters is " + charPool);
     console.log("Password length is " + passwordLength);
     console.log("Password is " + passwordTest);
@@ -49,6 +49,6 @@ function writePassword() {
     console.log(password);
 }
 
-generateBtn.addEventListener("click", writePassword());
+generateBtn.addEventListener("click", writePassword);
 
 // Source for passwordTest line at line 34: https://www.codegrepper.com/code-examples/javascript/select+random+character+from+string+javascript
