@@ -1,14 +1,11 @@
-// Get references to the #generate element
-var generateBtn = document.querySelector("#generate");
-
-var charPool = "";
-var passwordTest = "";
+//Create Password
 function generatePassword() {
     var passwordLength = parseInt(prompt("Please enter desired password length"));
     //Establish how long password will be (min 8 characters, max 128 characters)
     while (passwordLength < 8 || passwordLength > 128) { //Needs to ignore non numbers
         passwordLength = parseInt(prompt("Password must be between 8 and 128 characters"));
     };
+    var charPool = "";
     var passwordCap = window.prompt("Would you like capital letters?");
     //Include capital letters as possibility for password
     if (passwordCap === "yes" || passwordCap === "y") {
@@ -30,13 +27,18 @@ function generatePassword() {
         charPool += "0123456789";
     };
     //Create password given parameters from above
+    var passwordTest = "";
     for (var i = 0; i < passwordLength; i++) {
         passwordTest += charPool.charAt(Math.floor(Math.random() * charPool.length)); //Source at bottom
     };
+
     console.log("Pool of characters is " + charPool);
     console.log("Password length is " + passwordLength);
     console.log("Password is " + passwordTest);
 };
+
+// Get references to the #generate element
+var generateBtn = document.querySelector("#generate");
 
 //Write password to the #password input
 function writePassword() {
@@ -44,6 +46,7 @@ function writePassword() {
     var passwordText = document.querySelector("#password");
 
     passwordText.value = password;
+    console.log(password);
 }
 
 generateBtn.addEventListener("click", writePassword());
