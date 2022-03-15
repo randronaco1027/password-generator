@@ -1,40 +1,41 @@
-//Create Password
+//Create Password function
 function generatePassword() {
     var passwordLength = parseInt(prompt("Please enter desired password length"));
     //Establish how long password will be (min 8 characters, max 128 characters)
-    while (passwordLength < 8 || passwordLength > 128) { //Needs to ignore non numbers
+    while (passwordLength < 8 || passwordLength > 128) { 
         passwordLength = parseInt(prompt("Password must be between 8 and 128 characters"));
     };
     var charPool = "";
-    var passwordCap = window.prompt("Would you like capital letters?");
     //Include capital letters as possibility for password
-    if (passwordCap === "yes" || passwordCap === "y") {
+    var passwordCap = window.confirm("Would you like capital letters?");
+    if (passwordCap == true) {
         charPool += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     };
     //Include lowercase letters as possibility for password
-    var passwordLow = window.prompt("Would you like lower case letters?");
-    if (passwordLow === "yes" || passwordLow === "y") {
+    var passwordLow = window.confirm("Would you like lower case letters?");
+    if (passwordLow == true) {
         charPool += "abcdefghijklmnopqrstuvwyz";
     };
     //Include special characters as possibility for password
-    var passwordSpecial = window.prompt("Would you like special characters?");
-    if (passwordSpecial === "yes" || passwordSpecial === "y") {
+    var passwordSpecial = window.confirm("Would you like special characters?");
+    if (passwordSpecial == true) {
         charPool += " !”#$%&()*+,-./:;<=>?@[\]^_`{|}~"
     };
     //Include numbers as possibility for password
-    var passwordNum = window.prompt("Would you like numbers?");
-    if (passwordNum === "yes" || passwordNum === "y") {
+    var passwordNum = window.confirm("Would you like numbers?");
+    if (passwordNum == true) {
         charPool += "0123456789";
     };
+    //Alert user they must provide at least one parameter
+    if (passwordCap == false && passwordLow == false && passwordSpecial == false && passwordNum == false) {
+        window.alert("Must select at least one type of character to be used!");
+    }
     //Create password given parameters from above
     var passwordTest = "";
     for (var i = 0; i < passwordLength; i++) {
         passwordTest += charPool.charAt(Math.floor(Math.random() * charPool.length)); //Source at bottom
     };
     return passwordTest;
-    console.log("Pool of characters is " + charPool);
-    console.log("Password length is " + passwordLength);
-    console.log("Password is " + passwordTest);
 };
 
 // Get references to the #generate element
